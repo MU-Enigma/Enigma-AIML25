@@ -5,6 +5,7 @@ from .logistic_regression import LogisticRegression
 from .decision_tree_classifier import DecisionTreeClassifier
 from .svr import SVR
 from .svc import SVC
+from .decision_tree_regressor import DecisionTreeRegressor
 
 __all__ = [
     "BaseModel",
@@ -14,4 +15,5 @@ __all__ = [
     "DecisionTreeClassifier",
     "SVR",
     "SVC",
+    "DecisionTreeRegressor",
 ]
