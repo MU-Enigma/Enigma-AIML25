@@ -1,16 +1,18 @@
 [
   {
     "model": "Linear Regression",
+    "dataset": "binary_classification",
     "accuracy": 0.8716666666666667,
-    "time_to_convergence": 0.010535001754760742,
+    "time_to_convergence": 0.0074579715728759766,
     "iterations_to_converge": 993,
-    "time_per_prediction": 2.2864341735839843e-06
+    "time_per_prediction": 2.300739288330078e-06
   },
   {
     "model": "Perceptron",
+    "dataset": "binary_classification",
     "accuracy": 0.8433333333333334,
-    "time_to_convergence": 0.373089075088501,
+    "time_to_convergence": 0.3722817897796631,
     "iterations_to_converge": 1000,
-    "time_per_prediction": 2.491474151611328e-06
+    "time_per_prediction": 2.453327178955078e-06
   }
 ]
