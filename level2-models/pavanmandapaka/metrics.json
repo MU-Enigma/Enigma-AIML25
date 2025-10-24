@@ -1,0 +1,16 @@
+[
+  {
+    "model": "Linear Regression",
+    "accuracy": 0.8716666666666667,
+    "time_to_convergence": 0.010535001754760742,
+    "iterations_to_converge": 993,
+    "time_per_prediction": 2.2864341735839843e-06
+  },
+  {
+    "model": "Perceptron",
+    "accuracy": 0.8433333333333334,
+    "time_to_convergence": 0.373089075088501,
+    "iterations_to_converge": 1000,
+    "time_per_prediction": 2.491474151611328e-06
+  }
+]
