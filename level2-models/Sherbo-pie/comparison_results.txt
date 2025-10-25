@@ -1,0 +1,20 @@
+MODEL COMPARISON RESULTS
+============================================================
+
+Dataset: binary_classification.csv
+Total Samples: 1000
+Training Samples: 800
+Testing Samples: 200
+
+LINEAR REGRESSION:
+  Training R² Score: -0.1750
+  Testing R² Score: -0.2225
+  Training Time: 0.2955s
+  Time per Prediction: 0.000038ms
+
+PERCEPTRON:
+  Training Accuracy: 96.75%
+  Testing Accuracy: 95.00%
+  Training Time: 0.6254s
+  Time per Prediction: 0.000819ms
+  Convergence Iterations: 1000
