@@ -115,6 +115,8 @@ class DecisionTreeRegressor(BaseModel):
         return left_idxs, right_idxs
 
     def _calculate_leaf_value(self, y):
+        if len(y) == 0:
+            return 0
         return np.mean(y)
 
     def forward(self, X):
