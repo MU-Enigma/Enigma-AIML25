@@ -1,0 +1,22 @@
+Analysis.txt:
+
+ANALYSIS: LINEAR REGRESSION VS PERCEPTRON
+
+RESULTS
+-------
+Metric                          Linear Regression    Perceptron
+Accuracy                        87.17%               84.33%
+Time to Convergence             0.0105 sec           0.3731 sec
+Iterations                      993                  1000
+Time per Prediction             2.29 micro sec              2.49 micro sec
+
+KEY FINDINGS
+------------
+- Linear Regression wins with higher accuracy (87.17% vs 84.33%) and faster convergence
+- The data is nearly linearly separable. Linear regression's MSE loss creates better decision boundaries than the perceptron's sample-wise updates
+- Linear regression's batch gradient descent is more efficient than the perceptron's online learning rule
+- Both models are equally fast for predictions, as they use the same linear prediction formula
+
+CONCLUSION
+----------
+Linear Regression outperforms the Perceptron in both accuracy and convergence speed. The dataset's linear structure makes gradient descent-based optimization more effective than the perceptron approach.
