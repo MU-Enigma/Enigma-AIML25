@@ -1,20 +1,26 @@
-MODEL COMPARISON RESULTS
+APPLES-TO-APPLES MODEL COMPARISON
 ============================================================
+
+Both models evaluated as binary classifiers using accuracy metric
 
 Dataset: binary_classification.csv
 Total Samples: 1000
 Training Samples: 800
 Testing Samples: 200
 
-LINEAR REGRESSION:
-  Training R² Score: -0.1750
-  Testing R² Score: -0.2225
-  Training Time: 0.2955s
-  Time per Prediction: 0.000038ms
+LINEAR REGRESSION (with Sigmoid):
+  Training Accuracy: 90.25%
+  Testing Accuracy: 90.50%
+  Training Time: 0.3795s
+  Time per Prediction: 0.000323ms
 
 PERCEPTRON:
-  Training Accuracy: 96.75%
-  Testing Accuracy: 95.00%
-  Training Time: 0.6254s
-  Time per Prediction: 0.000819ms
+  Training Accuracy: 95.38%
+  Testing Accuracy: 96.00%
+  Training Time: 0.6971s
+  Time per Prediction: 0.001134ms
   Convergence Iterations: 1000
+
+CONCLUSION:
+Accuracy difference: 5.50%
+Both models perform similarly on this binary classification task.

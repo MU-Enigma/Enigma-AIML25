@@ -44,29 +44,26 @@ PERCEPTRON SPECIFICS:
 - Evaluation Metric: Classification Accuracy
 
 =============================================================================
-3. RESULTS COMPARISON
+3. RESULTS COMPARISON (UPDATED - APPLES-TO-APPLES)
 =============================================================================
 
- LINEAR REGRESSION:
-   Training R▒ Score:    -0.1750
-   Testing R▒ Score:     -0.2225
-   Training Time:        0.2955 seconds
-   Time per Prediction:  0.000038 ms
-   Convergence:          Yes
+NOTE: As per reviewer feedback, Linear Regression now uses sigmoid activation
+with thresholding to output binary predictions (0 or 1), enabling direct
+accuracy comparison with Perceptron.
 
- PERCEPTRON:
-   Training Accuracy:    96.75%
-   Testing Accuracy:     95.00%
-   Training Time:        0.6254 seconds
-   Time per Prediction:  0.000819 ms
-   Convergence:          Max iterations
-   Final Errors:         40
+METRIC                  | LINEAR REGRESSION | PERCEPTRON
+------------------------|-------------------|------------------
+Training Accuracy       | [90.25%]          | [95.38%]
+Testing Accuracy        | [90.50%]          | [96.00%]
+Training Time           | [0.3795 seconds]  | [0.6971 seconds]
+Time per Prediction     | [0.000323 ms]     | [0.001134 ms]
+Optimizer               | Gradient Descent  | Perceptron Learning Rule
+Convergence             | 1000 iterations   | [MAX iterations]
 
- WINNER BY CATEGORY:
-   Faster Training:      Linear Regression
-   Faster Prediction:    Linear Regression
-   Better Performance:   Perceptron
-
+APPLES-TO-APPLES COMPARISON:
+Both models now evaluated using the same metric (classification accuracy).
+Linear Regression uses MSE loss during training but applies sigmoid + 
+thresholding for binary predictions during evaluation.
 
 =============================================================================
 4. OBSERVATIONS & INSIGHTS

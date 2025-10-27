@@ -50,6 +50,25 @@ class LinearRegression:
         
         r2 = 1 - (ss_res / ss_tot)
         return r2
+    
+    def sigmoid(self, x):
+      import math
+      return 1 / (1 + math.exp(-x))
+
+    def predict_proba(self, X):
+      # First get linear predictions
+      linear_pred = self.predict(X)
+      # Apply sigmoid to convert to probabilities
+      return [self.sigmoid(p) for p in linear_pred]
+
+    def predict_binary(self, X, threshold=0.5):
+      probabilities = self.predict_proba(X)
+      return [1 if p >= threshold else 0 for p in probabilities]
+
+    def accuracy(self, X, y, threshold=0.5):
+      predictions = self.predict_binary(X, threshold)
+      correct = sum(1 for pred, true in zip(predictions, y) if pred == true)
+      return correct / len(y)
 
 
 def load_dataset(filename):
@@ -83,10 +102,13 @@ def load_dataset(filename):
 if __name__ == "__main__":
     import time
     
-    print("=== Linear Regression Implementation ===\n")
+    print("=== Linear Regression for Binary Classification ===\n")
     
-    # Load data
-    X, y = load_dataset('../../datasets/binary_classification.csv')
+    # Load data - convert to binary labels
+    X, y_continuous = load_dataset('../../datasets/binary_classification.csv')
+    
+    # Convert continuous labels to binary (0 or 1)
+    y = [1 if val > 0.5 else 0 for val in y_continuous]
     
     # Split into train/test (80/20)
     split_idx = int(0.8 * len(X))
@@ -94,10 +116,11 @@ if __name__ == "__main__":
     y_train, y_test = y[:split_idx], y[split_idx:]
     
     print(f"Training samples: {len(X_train)}")
-    print(f"Testing samples: {len(X_test)}\n")
+    print(f"Testing samples: {len(X_test)}")
+    print(f"Class distribution: {sum(y_train)} positive, {len(y_train) - sum(y_train)} negative\n")
     
     # Train model
-    print("Training Linear Regression...")
+    print("Training Linear Regression with MSE...")
     start_time = time.time()
     
     model = LinearRegression(learning_rate=0.0001, iterations=1000)
@@ -105,20 +128,29 @@ if __name__ == "__main__":
     
     training_time = time.time() - start_time
     
-    # Evaluate
-    train_score = model.score(X_train, y_train)
-    test_score = model.score(X_test, y_test)
+    # Evaluate as classifier
+    train_acc = model.accuracy(X_train, y_train)
+    test_acc = model.accuracy(X_test, y_test)
     
-    print(f"\n=== Results ===")
-    print(f"Training R² Score: {train_score:.4f}")
-    print(f"Testing R² Score: {test_score:.4f}")
+    print(f"\n=== Classification Results ===")
+    print(f"Training Accuracy: {train_acc * 100:.2f}%")
+    print(f"Testing Accuracy: {test_acc * 100:.2f}%")
     print(f"Training Time: {training_time:.4f} seconds")
     
-    # Make sample predictions
-    print(f"\n=== Sample Predictions ===")
-    sample_X = X_test[:5]
-    sample_y_true = y_test[:5]
-    sample_y_pred = model.predict(sample_X)
+    # Also show R² for comparison
+    train_r2 = model.score(X_train, y_train)
+    test_r2 = model.score(X_test, y_test)
+    print(f"\nR² Score (regression metric):")
+    print(f"Training R²: {train_r2:.4f}")
+    print(f"Testing R²: {test_r2:.4f}")
     
-    for i in range(5):
-        print(f"Input: {sample_X[i]:.2f} | True: {sample_y_true[i]:.2f} | Predicted: {sample_y_pred[i]:.2f}")
+    # Sample predictions
+    print(f"\n=== Sample Predictions ===")
+    sample_X = X_test[:10]
+    sample_y_true = y_test[:10]
+    sample_y_pred = model.predict_binary(sample_X)
+    sample_y_proba = model.predict_proba(sample_X)
+    
+    for i in range(10):
+        status = "[CORRECT]" if sample_y_pred[i] == sample_y_true[i] else "[WRONG]"
+        print(f"{status} Input: {sample_X[i]:.2f} | True: {sample_y_true[i]} | Predicted: {sample_y_pred[i]} | Probability: {sample_y_proba[i]:.4f}")

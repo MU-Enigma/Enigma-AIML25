@@ -142,5 +142,5 @@ if __name__ == "__main__":
     sample_y_pred = model.predict(sample_X)
     
     for i in range(10):
-        status = "✓" if sample_y_pred[i] == sample_y_true[i] else "✗"
+        status = "[CORRECT]" if sample_y_pred[i] == sample_y_true[i] else "[WRONG]"
         print(f"{status} Input: {sample_X[i]:.2f} | True: {sample_y_true[i]} | Predicted: {sample_y_pred[i]}")
