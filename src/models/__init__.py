@@ -6,6 +6,7 @@ from .decision_tree_classifier import DecisionTreeClassifier
 from .svr import SVR
 from .decision_tree_regressor import DecisionTreeRegressor
 from .svc import SVC
+from .knn import KNN
 
 __all__ = [
     "BaseModel",
@@ -16,4 +17,5 @@ __all__ = [
     "SVR",
     "DecisionTreeRegressor",
     "SVC",
+    "KNN",
 ]

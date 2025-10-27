@@ -1,0 +1,26 @@
+{
+    "linear": {
+        "LinearRegressionGD": {
+            "accuracy": 0.8467,
+            "train_time_sec": 0.0,
+            "time_per_prediction_sec": 0.0
+        },
+        "Perceptron": {
+            "accuracy": 0.88,
+            "train_time_sec": 0.5182,
+            "time_per_prediction_sec": 0.0
+        }
+    },
+    "nonlinear": {
+        "LinearRegressionGD": {
+            "accuracy": 0.8733,
+            "train_time_sec": 0.01,
+            "time_per_prediction_sec": 0.0
+        },
+        "Perceptron": {
+            "accuracy": 0.8533,
+            "train_time_sec": 0.5318,
+            "time_per_prediction_sec": 0.0
+        }
+    }
+}
