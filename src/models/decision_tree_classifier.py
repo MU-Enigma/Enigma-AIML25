@@ -122,6 +122,8 @@ class DecisionTreeClassifier(BaseModel):
         return -np.sum([p * np.log(p + epsilon) for p in ps if p > 0])
 
     def _most_common_label(self, y):
+        if len(y) == 0:
+            return None
         counter = Counter(y)
         value = counter.most_common(1)[0][0]
         return value
