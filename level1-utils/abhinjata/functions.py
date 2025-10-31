@@ -70,17 +70,6 @@ def cosineSim(v, u):
     
     return numerator / (mag_v * mag_u)
 
-def euclidean_distance(v: list[float], u: list[float]) -> float:
-
-    # Calculates the Euclidean (L2) distance between two vectors for a star
-
-    if len(v) != len(u):
-        raise ValueError("Vectors must be the same dimension")
-    
-    sumOfsquares = sum((v_i - w_i)**2 for v_i, w_i in zip(v, u))
-
-    return math.sqrt(sumOfsquares)
-
 # III. Normalization Functions 
 
 def manhattanNorm(v: list[float]) -> list[float]:
@@ -188,5 +177,6 @@ def reconstruct_path(backtrackItem: dict[str, str], current: str) -> list[str]:
         total_path.append(current)
 
     return total_path[::-1]
+
 
 #Courtesy: Gemini 2.5 Pro -> for general learning and major control logic of A Star Search
