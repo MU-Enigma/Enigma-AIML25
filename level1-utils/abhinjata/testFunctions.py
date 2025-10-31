@@ -3,6 +3,9 @@ import numpy as np
 import functions as utils
 
 if __name__ == "__main__":
+
+    #AI-Generated :( 
+    
     print("--- Starting Function Tests ---")
 
     # --- 1. Activation Functions ---
@@ -107,4 +110,5 @@ if __name__ == "__main__":
     print(f"  Path: {' -> '.join(path)}") # Expected: A -> C -> GOAL
     print(f"  Cost: {cost}") # Expected: 3
     
+
     print("\n--- All Tests Complete ---")
