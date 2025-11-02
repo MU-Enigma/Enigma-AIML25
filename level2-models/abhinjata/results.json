@@ -1,0 +1,26 @@
+{
+    "binary_classification.csv": {
+        "linear_regression": {
+            "accuracy": 0.8716666666666667,
+            "convergence_time_sec": 0.025593042373657227,
+            "time_per_prediction_sec": 0.0
+        },
+        "perceptron": {
+            "accuracy": 0.8433333333333334,
+            "convergence_time_sec": 2.61428165435791,
+            "time_per_prediction_sec": 0.0
+        }
+    },
+    "binary_classification_non_lin.csv": {
+        "linear_regression": {
+            "accuracy": 0.79125,
+            "convergence_time_sec": 0.024977445602416992,
+            "time_per_prediction_sec": 0.0
+        },
+        "perceptron": {
+            "accuracy": 0.79625,
+            "convergence_time_sec": 3.6966564655303955,
+            "time_per_prediction_sec": 1.2511014938354491e-06
+        }
+    }
+}
