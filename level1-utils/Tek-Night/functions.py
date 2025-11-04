@@ -1,5 +1,5 @@
 import math
-import numpy
+import numpy as np
 
 # Sigmoid Function
 def sigmoid(x):
@@ -18,26 +18,25 @@ def vector_dot_product(x,y):
     return x@y
 
 #cosine similarity
-def simple_heuristic(board, player):
-    opponent = 'O' if player == 'X' else 'X'
-    wins = [
-        [0,1,2],[3,4,5],[6,7,8], # rows
-        [0,3,6],[1,4,7],[2,5,8], # columns
-        [0,4,8],[2,4,6]          # diagonals
-    ]
+def cosine_similarity(vec1, vec2):
 
-    score = 0
+    dot_product = np.dot(vec1, vec2)
+    norm_vec1 = np.linalg.norm(vec1)
+    norm_vec2 = np.linalg.norm(vec2)
+    similarity = dot_product / (norm_vec1 * norm_vec2)
+    return similarity
 
-    for pos in wins:
-        vals = [board[i] for i in pos]
-        # if only the player is in that line → good
-        if opponent not in vals:
-            score += vals.count(player)
-        # if opponent controls that line → bad
-        elif player not in vals:
-            score -= vals.count(opponent)
-    
-    return score
+#l1 normalization
+def l1_normalize(x):
+    return x / np.sum(np.abs(x))
+
+#l2 normalization
+def l2_normalize(x):
+    return x / np.sqrt(np.sum(x**2))
+
+#min-max normalization
+def min_max_normalize(x):
+    return (x - np.min(x)) / (np.max(x) - np.min(x))
 
 #Heuristic function
 ''' This heuristic measures how far each tile is from its goal position (up/down/left/right steps).
