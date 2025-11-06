@@ -20,7 +20,6 @@ Observations:
 - Typically, the perceptron converges faster on linearly separable data, whereas linear regression might take longer depending on learning rate.
 
 Analysis:
-<Add your detailed interpretation here based on the above metrics, explaining why models performed as they did, and noting any anomalies or insights.>
+Both the models giving same accuracy indicates that the dataset is linear.
+Other datasets which arent linear will not work well with linear classification as they are work complex and not in a straight line form.
 
-Detailed Analysis:
-<Your detailed explanation about why one performed better or worse, etc.>
