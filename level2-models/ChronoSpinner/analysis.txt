@@ -1,0 +1,25 @@
+
+Model Performance Comparison
+============================
+
+Accuracy:
+- Linear Regression: 0.99
+- Perceptron: 0.99
+
+Time to Convergence:
+- Linear Regression: 0.0122 seconds
+- Perceptron: 2.9198 seconds
+
+Average Time per Prediction:
+- Linear Regression: 0.000000 seconds
+- Perceptron: 0.000000 seconds
+
+Observations:
+- Both models achieved high accuracy (~99.00), indicating the dataset might be linearly separable.
+- The time to convergence varies based on the dataset and the model's complexity.
+- Typically, the perceptron converges faster on linearly separable data, whereas linear regression might take longer depending on learning rate.
+
+Analysis:
+Both the models giving same accuracy indicates that the dataset is linear.
+Other datasets which arent linear will not work well with linear classification as they are work complex and not in a straight line form.
+
